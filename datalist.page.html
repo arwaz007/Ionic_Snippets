@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="setData(form)">
+    <ion-item>
+      <ion-label position="floating">Enter Name</ion-label>
+      <ion-input  type="text" name="uname" ngModel></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Enter Phone no</ion-label>
+      <ion-input  type="text" name="phone" ngModel></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Enter Email</ion-label>
+      <ion-input  type="email" name="email" ngModel></ion-input>
+    </ion-item>
+    
+ 
+  <ion-button  type="submit" color="success"  expand="full">Save</ion-button>
+   </form>
+   <!-- {{name}}   {{phone}}  {{email}}  -->
+   <ion-list>
+    
+   <ion-item *ngFor="let item of arr ; let i=index">
+    
+    <ion-label>{{item.uname}}</ion-label>
+    <ion-label>{{item.phone}}</ion-label>
+    <ion-label>{{item.email}}</ion-label>
+    
+  
+    <!-- <ion-label><ion-icon name="trash-outline"></ion-icon></ion-label> -->
+    <button ion-button  >
+      <ion-icon name="create-sharp"   (click)="updateTask(i)"></ion-icon>
+    </button>
+    <button ion-button>
+      <ion-icon name="trash-sharp" (click)="deleteTask(i,item)"></ion-icon>
+    </button>
+    </ion-item>
+ </ion-list>
+</ion-content>
+
